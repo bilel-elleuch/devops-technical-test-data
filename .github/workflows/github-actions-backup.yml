@@ -45,8 +45,6 @@ jobs:
     - name: Run Backup Tool
       run: |
         source env/bin/activate
-        git config --global user.name "bilel-elleuch"
-        git config --global user.email "bilel.elleuch96@gmail.com"  
         python script.py
 
 
