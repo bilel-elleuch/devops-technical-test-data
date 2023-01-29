@@ -11,8 +11,6 @@ env:
   BACKUP_FOLDER: data
   BRANCH_NAME: main
 
-env:
-  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
 jobs:
   backup:
