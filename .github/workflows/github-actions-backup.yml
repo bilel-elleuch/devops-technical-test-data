@@ -10,6 +10,7 @@ env:
   PRIVATE_REPO: https://github.com/bilel-elleuch/descartes-backup-project
   BACKUP_FOLDER: data
   BRANCH_NAME: main
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
 
 jobs:
