@@ -1,0 +1,54 @@
+name: Backup Tool
+
+on:
+  push:
+    branches:
+      - 01-01-2022-test 
+
+env:
+  PUBLIC_REPO: https://github.com/bilel-elleuch/chatBot-pcd
+  PRIVATE_REPO: https://github.com/bilel-elleuch/descartes-backup-project
+  BACKUP_FOLDER: data
+  BRANCH_NAME: main
+
+env:
+  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Private Repository
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        repository: bilel-elleuch/descartes-backup-project
+        token: ${{ secrets.ACCESS_TOKEN }}
+
+    - name: Set Git configuration
+      run: |
+        git config --global user.name "bilel-elleuch"
+        git config --global user.email "bilel.elleuch96@gmail.com"  
+      
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+        
+    - name: Install Dependencies
+      run: |
+        python -m venv env
+        source env/bin/activate
+        pip install GitPython
+        
+    - name: Run Backup Tool
+      run: |
+        source env/bin/activate
+        git config --global user.name "bilel-elleuch"
+        git config --global user.email "bilel.elleuch96@gmail.com"  
+        python script.py
+
+
+
+
