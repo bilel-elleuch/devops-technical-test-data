@@ -22,11 +22,11 @@ jobs:
       with:
         ref: main
         repository: bilel-elleuch/descartes-backup-project
-        token: secrets.ACCESS_TOKEN
+        token: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Set Git configuration
       run: |
-        echo secrets.ACCESS_TOKEN
+        echo ${{ secrets.ACCESS_TOKEN }}
         git config --global user.name "bilel-elleuch"
         git config --global user.email "bilel.elleuch96@gmail.com"  
       
